@@ -1,0 +1,47 @@
+Authors: Abhinav Mummameni (amumma01), Rolando Ortega (rorteg02)
+
+Architecture:
+    - 40image.c: Opens the file provided by the client and handles the 
+                    compression or decompression command that is provided. 
+
+    - compress40.c: Handles the compression or decompression of a provided file.
+                    The main functions, compress40 and decompress40, are 
+                    called by 40image to either compress or decompress the 
+                    image that is contained in the file.
+
+    - bitpack.c: Implementation of the bitpack.h interface, which is used to 
+                    add to and extract from 64-bit unsigned integer code words.
+                    The "new" functions in the interface are called by the 
+                    compression program in compress40.c, while the "get"
+                    functions in the interface are called by compress40.c's 
+                    decompression program. 
+
+    - conversion.h: Interface for conversion, which handles the transformation 
+                    of blocks of RGB pixels to DCT values and averages, and  
+                    vice versa. These functions are called by the compression  
+                    and decompression programs contained in compress40.c
+
+    - conversion.c: Implementation of the functions contained in conversion.h
+
+    - a2plain.c: A methods suite for the functions of a UArray2, which is used
+                    by the pnm reader in compress40 to manipulate the pixels
+                    in a ppm image file. 
+
+    - UArray2.c: A 2 dimensional unboxed array that is used to store the pixels
+                    of an image to compress or store the results of decompress-
+                    ing an already compressed image. Used to store data from 
+                    files in the compression and decompression files in 
+                    compress40.c. 
+
+    - Makefile: Create an executable for the 40image program. 
+
+    - README: This file, overview of the files and architecture of this programs
+
+Acknowledgements: Thank you to Mark and Noah for the helpful lectures. 
+Also thank you to our Lab TA's at the 12:00 Friday lab.
+
+Implementation Notes: Compression and Decompression are correctly implemented.
+
+Time spent analyzing the problem: 5 hours
+
+Time spent solving the problem: 25 hours
